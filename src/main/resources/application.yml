@@ -1,0 +1,71 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 5002
+  connection-timeout: 5000ms
+  servlet:
+    # 接口前缀
+    context-path: /
+
+spring:
+  # 环境 dev|test|prod @spring.profiles.active@
+  profiles:
+    active: @spring.profiles.active@
+  # jackson时间格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+#  resources:
+#    add-mappings: false
+
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.framework.antong.*.entity
+  global-config:
+    #数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: ASSIGN_ID
+      logic-delete-field: 'isActive'
+      logic-delete-value: 'N'
+      logic-not-delete-value: 'Y'
+    banner: false
+  #原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+shiro:
+  #loginUrl: /login #登录入口URL
+  #successUrl: /index #登录成功跳转URL
+  #unauthorizedUrl: /unauthorized #当访问未授权页面时跳转至该URL，将为filter chain中的每个AuthorizationFilter设置跳转URL（如果目标没有指定）
+  hashIterations: 1 #加密迭代次数，强制设为至少1次（即使设置0或负数）
+  hashAlgorithmName: MD5 #加密算法名称，如：MD2/SHA-1/SHA-256/SHA-384/SHA-512
+  sessionTimeout: 1800000  #设置session(Token)过期时间 1000 = 1秒
+
+
+
+
+
+
+
+
+
+

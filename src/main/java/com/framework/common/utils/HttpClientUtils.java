@@ -150,7 +150,7 @@ public class HttpClientUtils {
 
             @Override
             public void checkServerTrusted(X509Certificate[] arg0, String authType) throws CertificateException {
-                // TODO Auto-generated method stub
+                // TODO Auto-generated method stub2
             }
         };
         SSLContext sslContext;

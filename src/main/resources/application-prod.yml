@@ -5,9 +5,9 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://192.168.4.120:3306/yz_volunteer?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: yangqing
-            password: yangqing123
+            url: jdbc:mysql://139.196.223.215:3306/antong?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: kly
+            password: kailoveying123
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -37,7 +37,7 @@ spring:
 
     redis:
         # Redis服务器地址
-        host: 192.168.4.120
+        host: 139.196.223.215
         # Redis服务器连接端口
         port: 6379
         # Redis服务器连接密码（默认为空）

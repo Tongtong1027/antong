@@ -1,12 +1,9 @@
-
 package com.framework.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,6 +17,11 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+
+/**
+ * author: chenkaihang
+ * date: 2021/5/6 7:14 下午
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig implements WebMvcConfigurer {
@@ -27,28 +29,28 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .apiInfo(apiInfo())
-            .select()
-            //加了ApiOperation注解的类，才生成接口文档
-            .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-            //包下的类，才生成接口文档
-            //.apis(RequestHandlerSelectors.basePackage("io.renren.controller"))
-            .paths(PathSelectors.any())
-            .build()
-            .securitySchemes(security());
+                .apiInfo(apiInfo())
+                .select()
+                //加了ApiOperation注解的类，才生成接口文档
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                //包下的类，才生成接口文档
+                //.apis(RequestHandlerSelectors.basePackage("com.framework.antong.sys.controller"))
+                .paths(PathSelectors.any())
+                .build()
+                .securitySchemes(security());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("一泽")
-            .description("yize-fast文档")
-            .version("3.0.0")
-            .build();
+                .title("安童")
+                .description("安童baby文档")
+                .version("1.0.0")
+                .build();
     }
 
     private List<ApiKey> security() {
         return newArrayList(
-            new ApiKey("token", "token", "header")
+                new ApiKey("token", "token", "header")
         );
     }
 

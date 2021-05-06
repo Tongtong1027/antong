@@ -101,10 +101,14 @@ public class ShiroConfig {
         filterChainDefinitions.put("/doLogout","anon");
         filterChainDefinitions.put("/doLoginByPassword","anon");
         filterChainDefinitions.put("/doLoginByOpenId","anon");
+        filterChainDefinitions.put("/webjars/**", "anon");
         filterChainDefinitions.put("/swagger/**", "anon");
         filterChainDefinitions.put("/v2/api-docs", "anon");
         filterChainDefinitions.put("/swagger-ui.html", "anon");
+        filterChainDefinitions.put("/swagger-ui.html/*", "anon");
+        filterChainDefinitions.put("swagger-ui.html", "anon");
         filterChainDefinitions.put("/swagger-resources/**", "anon");
+        filterChainDefinitions.put("/swagger-resources", "anon");
         filterChainDefinitions.put("/**", "customizedAuthorizationFiler");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitions);
 

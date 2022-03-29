@@ -109,6 +109,9 @@ public class ShiroConfig {
         filterChainDefinitions.put("swagger-ui.html", "anon");
         filterChainDefinitions.put("/swagger-resources/**", "anon");
         filterChainDefinitions.put("/swagger-resources", "anon");
+        filterChainDefinitions.put("/test/**", "anon");
+        filterChainDefinitions.put("/produce/**", "anon");
+        filterChainDefinitions.put("/notifyAll/**", "anon");
         filterChainDefinitions.put("/**", "customizedAuthorizationFiler");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitions);
 
